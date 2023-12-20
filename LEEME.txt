@@ -1,0 +1,86 @@
+/////entrega todo en una carpeta
+script de ejemplo
+.l y .y añadidos
+fichero lm especifique con claridad como compilarlo
+makefile
+
+
+correciones:
+EXIT ---- LIBERAR MEMORIA DE LA TABLA
+flex meto codigo en c, quitarlo
+
+
+/////////////////////////////////VER CALCULADORA DEL MANUAL(mfcalc)////////////////////////////////////
+
+
+
+BASICA:
+
+Para compilar:
+flex pruebas.l
+make
+Para ejecutar:
+./compilador
+
+se ofrece un cursor para que el usuario meta una expresion matematica
+tendrá 2 modos de ejecución:
+expresion matematica o ficheros:
+> 4+5
+> ans 9
+---------
+> load(script)
+terminacion del script parecido a .py, tendrá instrucciones linea a linea
+otra opcion para el load sería: ./ejecutable script, lo ejecutaria y volveria a aceptar entradas
+tendra 2 estados
+>echo ON/OFF
+ON-> sale por consola
+OFF-> no se muestra la salida ;
+
+se pueden usar variables
+> a = 4 + 5
+> a = a + 1
+suma, restas, parentesis, multiplicaciones, divisiones, parentesis, potencias, numeros enteros y de punto flotante(no binarios ni exponenciasles)
+constantes PI y euler e o mas si quieres
+sen , coseno , tangentes, log nep y exponencial, x lo menos
+no se puede darle el valor a una variable de una constante
+las variables tendran que estar deefinidas antes de usarse a la izquierda del parentesis sino se devolvera error
+> a = b + 1 sera un error si b no se define antes
+sistema estatico de tipos
+usar todo floats aunque haya enteros operando, facilita mucho
+
+errores de indeterminacion: 0/0
+
+workspace() imprime por pantalla el conjunto de variables que han sido asignadas desde el inicio de la sesion y su valor actual
+clear() eliminar todas las variables que se han usado hasta ahora o especificar que variables eliminar
+help() proporcionar ayuda sobre que hace el interprete y como funcionan sus comandos
+quit() finalizacion del interprete y se devuelve el control a la terminal de linux
+
+todos en un .h y su implementacion en un .c
+
+funciones escalares
+
+
+erroers si no se cierran todos los parentesis que se abran
+
+flex como hasta ahora 
+luego BISONS: analizador sintactico que tiene como entrada un fichero  terminado  en .y Contiene la gramaticaindependiente del contexto que se usa en SALR. Proporciona como salida un analizados sintactico y semantico
+la semantica se lee 4 + 5 y se indica lo que se debe hacer es sumar
+se usará la misma tabla de simbolos
+TS "a" var valores (en valores guardaremos el valor de cada variable actual, podemos añadir un flag que diga si se le dio un valor o no)
+ej funcion: sin FUN *puntero a la funcion de math.h
+como metemso las funciones en el proyecto?
+en la especificacion sintactica puedo meter una linea por especificaion sintactica
+
+PREMIUM:
+
+import() importar librerias o paquetes en momento de ejecucion dinamicamente, cargar librerias ya compiladas
+cuando las meto, puedo usar todas sus funciones
+
+utilizar dlfcn.h libreria que proporciona funciones para le gastion dinamica de paquetes y librerio:
+dlopen() abre la libreria, para cuando hagamos el import
+dlclose()
+dlsym() buscar simbolos o direcciones de la libreria || aparece una funcion que no esta en la tabla de simbolos, buscamos en los paquetes y si esta la añadimos a la TS y ya sin fallo bro
+dlerror() posibles erroes
+
+dificultad:
+al buscar una funcion en un paquete no sabemos nada sobre ella(argumentos, tipos ... npi) esto nos exige utilizar recursos de c para acceder a esas funciones y ver que tiene
